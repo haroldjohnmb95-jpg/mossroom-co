@@ -6,7 +6,7 @@ export const SITE = {
   author: 'Mossroom Team',
   email: 'hello@mossroom.co',
   twitterHandle: '@mossroomco',
-  discordUrl: 'https://discord.gg/PLACEHOLDER',
+  discordUrl: 'https://discord.gg/7xSS2eWXH',
   // Newsletter will be wired to Buttondown or Mailchimp free tier
   newsletterEmbed: '',
 };
