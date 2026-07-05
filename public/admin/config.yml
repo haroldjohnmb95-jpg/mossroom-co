@@ -1,24 +1,13 @@
-// Decap CMS config for Mossroom
-// https://decapcms.org/docs/configuration-options/
-
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/mossroom-co   # <-- change this
+  repo: haroldjohnmb95-jpg/mossroom-co
   branch: main
-  # If you use a self-hosted OAuth proxy (Cloudflare Worker or hosted service),
-  # set base_url below. Otherwise remove this line to use the default Decap OAuth.
-  # base_url: https://YOUR-OAUTH-WORKER.workers.dev
+  base_url: https://decap-oauth.haroldjohnmb95.workers.dev
 
-# Where uploaded media lives. We use Cloudflare R2 via a custom proxy,
-# but for simplicity the local_image_backend keeps uploads inside the repo
-# (free, fine for MVP). Switch to R2 once you exceed 1GB.
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
 publish_mode: editorial_workflow
-
-# Editorial workflow: drafts → in review → ready
-# Authors create drafts, editor approves, then publishes.
 
 collections:
   - name: "articles"
