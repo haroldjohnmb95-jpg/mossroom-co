@@ -18,6 +18,21 @@ const { Content } = await article.render();
 const articleUrl = `https://mossroom.co/articles/${article.slug}`;
 const articleTitle = article.data.title;
 
+// Find related articles: same category first, then matching tags, exclude self
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const related = allArticles
+  .filter((a) => a.slug !== article.slug)
+  .map((a) => {
+    let score = 0;
+    if (a.data.category === article.data.category) score += 3;
+    const sharedTags = a.data.tags.filter((t) => article.data.tags.includes(t)).length;
+    score += sharedTags;
+    return { article: a, score };
+  })
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 3)
+  .map((x) => x.article);
+
 const shareLinks = [
   {
     name: 'X / Twitter',
@@ -130,6 +145,28 @@ const categoryColors: Record<string, string> = {
     <div class="prose-moss">
       <Content />
     </div>
+
+    {related.length > 0 && (
+      <section class="mt-16 pt-8 border-t border-moss-200">
+        <h3 class="font-serif text-2xl font-bold text-moss-900 mb-6">More from Mossroom</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {related.map((r) => (
+            <a
+              href={`/articles/${r.slug}`}
+              class="block bg-white border border-moss-200 hover:border-moss-400 rounded-xl p-5 transition-all hover:shadow-md group"
+            >
+              <span class={`badge ${categoryColors[r.data.category]} mb-2`}>
+                {categoryLabels[r.data.category]}
+              </span>
+              <h4 class="font-serif text-base font-bold text-moss-800 group-hover:text-moss-600 leading-snug mb-2">
+                {r.data.title}
+              </h4>
+              <p class="text-sm text-soil-600 line-clamp-2">{r.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
 
     <footer class="mt-16 pt-8 border-t border-moss-200">
       <div class="bg-moss-50 border border-moss-200 rounded-xl p-6 mb-8">
