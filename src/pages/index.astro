@@ -47,7 +47,6 @@ const categories = [
   title="Terrarium knowledge, finally in one place"
   description="Mossroom is the honest hub for terrarium builders — care guides, plant profiles, sourcing tips, and problem-solving, all written by people who are figuring it out, alongside you."
 >
-  <!-- Hero -->
   <section class="bg-gradient-to-b from-moss-100 to-moss-50 py-16 md:py-24">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
@@ -61,28 +60,20 @@ const categories = [
           Clear answers, honest about what we don't know, no fake expertise.
         </p>
         <div class="flex flex-col sm:flex-row gap-3">
-          <a href="/articles" class="btn-primary">
-            Browse all guides →
-          </a>
-          <a href="#newsletter" class="btn-secondary">
-            Get a weekly terrarium tip
-          </a>
+          <a href="/articles" class="btn-primary">Browse all guides →</a>
+          <a href="#newsletter" class="btn-secondary">Get a weekly terrarium tip</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Categories -->
   <section class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="font-serif text-3xl font-bold text-moss-900 mb-2">Where to start</h2>
       <p class="text-soil-600 mb-10">Pick a thread. We'll meet you there.</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {categories.map((cat) => (
-          <a
-            href={`/categories/${cat.slug}`}
-            class="block p-6 rounded-xl border border-moss-200 hover:border-moss-400 hover:shadow-md transition-all bg-white"
-          >
+          <a href={`/categories/${cat.slug}`} class="block p-6 rounded-xl border border-moss-200 hover:border-moss-400 hover:shadow-md transition-all bg-white">
             <div class="text-3xl mb-3">{cat.emoji}</div>
             <h3 class="font-serif text-xl font-bold text-moss-800 mb-2">{cat.label}</h3>
             <p class="text-sm text-soil-600">{cat.description}</p>
@@ -92,7 +83,6 @@ const categories = [
     </div>
   </section>
 
-  <!-- Featured -->
   {featured && (
     <section class="py-16 bg-moss-50">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -101,14 +91,10 @@ const categories = [
             <span class="text-xs uppercase tracking-wider text-moss-600 font-semibold">Featured</span>
             <h2 class="font-serif text-3xl font-bold text-moss-900 mt-1">This week's deep read</h2>
           </div>
-          <a href="/articles" class="hidden sm:inline text-moss-600 hover:text-moss-800 text-sm font-medium">
-            All guides →
-          </a>
+          <a href="/articles" class="hidden sm:inline text-moss-600 hover:text-moss-800 text-sm font-medium">All guides →</a>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div class="lg:col-span-2">
-            <ArticleCard article={featured} />
-          </div>
+          <div class="lg:col-span-2"><ArticleCard article={featured} /></div>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
             {recent.slice(0, 2).map((a) => <ArticleCard article={a} />)}
           </div>
@@ -117,25 +103,19 @@ const categories = [
     </section>
   )}
 
-  <!-- Recent grid -->
   <section class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="font-serif text-3xl font-bold text-moss-900 mb-8">Latest from the Mossroom</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {recent.map((a) => <ArticleCard article={a} />)}
       </div>
-      <div class="mt-10 text-center">
-        <a href="/articles" class="btn-secondary">Browse all articles</a>
-      </div>
+      <div class="mt-10 text-center"><a href="/articles" class="btn-secondary">Browse all articles</a></div>
     </div>
   </section>
 
-  <!-- Newsletter -->
   <section id="newsletter" class="py-20 bg-moss-700 text-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4">
-        The newsletter is coming soon.
-      </h2>
+      <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4">The newsletter is coming soon.</h2>
       <p class="text-moss-100 mb-8 text-lg">
         One small thing every Friday — a single terrarium tip, one question from the
         community, and a beautiful build from a reader. We're setting it up properly
@@ -144,9 +124,7 @@ const categories = [
       <p class="text-moss-200 mb-2">
         For now, <a href={SITE.discordUrl} class="underline text-white hover:text-moss-200 font-medium">join the Discord</a> — that's where the fast help lives.
       </p>
-      <p class="text-xs text-moss-200 mt-6">
-        Want a heads-up when the newsletter launches? Drop your email in the Discord #welcome channel.
-      </p>
+      <p class="text-xs text-moss-200 mt-6">Want a heads-up when the newsletter launches? Drop your email in the Discord #welcome channel.</p>
     </div>
   </section>
 </BaseLayout>
