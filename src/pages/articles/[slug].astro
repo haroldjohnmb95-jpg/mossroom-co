@@ -1,6 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../config';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
@@ -13,6 +14,32 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'articles'>;
 const article = Astro.props;
 const { Content } = await article.render();
+
+const articleUrl = `https://mossroom.co/articles/${article.slug}`;
+const articleTitle = article.data.title;
+
+const shareLinks = [
+  {
+    name: 'X / Twitter',
+    href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(articleTitle)}&url=${encodeURIComponent(articleUrl)}`,
+    icon: '𝕏',
+  },
+  {
+    name: 'Reddit',
+    href: `https://www.reddit.com/submit?url=${encodeURIComponent(articleUrl)}&title=${encodeURIComponent(articleTitle)}`,
+    icon: '◉',
+  },
+  {
+    name: 'Discord',
+    href: SITE.discordUrl,
+    icon: '💬',
+  },
+  {
+    name: 'Email',
+    href: `mailto:?subject=${encodeURIComponent(articleTitle)}&body=${encodeURIComponent(`Check this out: ${articleUrl}`)}`,
+    icon: '✉',
+  },
+];
 
 const categoryLabels: Record<string, string> = {
   'care-guide': 'Care guide',
@@ -113,21 +140,65 @@ const categoryColors: Record<string, string> = {
           Drop into the Mossroom Discord — over 200 builders sharing builds, troubleshooting
           dying plants, and trading springtail cultures.
         </p>
-        <a href="#" class="btn-primary">Join the community →</a>
+        <a href={SITE.discordUrl} class="btn-primary">Join the community →</a>
       </div>
 
       <div class="flex items-center justify-between flex-wrap gap-4">
         <p class="text-sm text-soil-500">
           Found this helpful? Share it with a fellow builder.
         </p>
-        <div class="flex items-center gap-3 text-sm">
-          <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.data.title)}&url=${encodeURIComponent(`https://mossroom.co/articles/${article.slug}`)}`} target="_blank" rel="noopener" class="text-soil-600 hover:text-moss-700">Twitter</a>
-          <span class="text-soil-300">·</span>
-          <a href={`https://www.reddit.com/submit?url=${encodeURIComponent(`https://mossroom.co/articles/${article.slug}`)}&title=${encodeURIComponent(article.data.title)}`} target="_blank" rel="noopener" class="text-soil-600 hover:text-moss-700">Reddit</a>
-          <span class="text-soil-300">·</span>
-          <a href={`mailto:?subject=${encodeURIComponent(article.data.title)}&body=${encodeURIComponent(`Check this out: https://mossroom.co/articles/${article.slug}`)}`} class="text-soil-600 hover:text-moss-700">Email</a>
+        <div class="flex flex-wrap items-center gap-2">
+          {shareLinks.map((link) => (
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener"
+              aria-label={`Share on ${link.name}`}
+              class="inline-flex items-center gap-1.5 bg-white hover:bg-moss-50 border border-moss-200 hover:border-moss-400 text-soil-700 hover:text-moss-800 text-sm font-medium px-3 py-1.5 rounded-md transition-colors"
+            >
+              <span class="text-base">{link.icon}</span>
+              <span>{link.name}</span>
+            </a>
+          ))}
+          <button
+            type="button"
+            data-copy-url={articleUrl}
+            aria-label="Copy link to clipboard"
+            class="copy-link-btn inline-flex items-center gap-1.5 bg-white hover:bg-moss-50 border border-moss-200 hover:border-moss-400 text-soil-700 hover:text-moss-800 text-sm font-medium px-3 py-1.5 rounded-md transition-colors"
+          >
+            <span class="text-base">🔗</span>
+            <span class="copy-link-text">Copy link</span>
+          </button>
         </div>
       </div>
     </footer>
   </article>
 </BaseLayout>
+
+<script>
+  document.addEventListener('click', async (e) => {
+    const btn = (e.target as HTMLElement).closest('.copy-link-btn');
+    if (!btn) return;
+    e.preventDefault();
+    const url = btn.getAttribute('data-copy-url');
+    if (!url) return;
+    try {
+      await navigator.clipboard.writeText(url);
+      const textEl = btn.querySelector('.copy-link-text');
+      if (textEl) {
+        const original = textEl.textContent;
+        textEl.textContent = 'Copied!';
+        setTimeout(() => {
+          if (textEl.textContent === 'Copied!') textEl.textContent = original;
+        }, 2000);
+      }
+    } catch {
+      const input = document.createElement('input');
+      input.value = url;
+      document.body.appendChild(input);
+      input.select();
+      try { document.execCommand('copy'); } catch {}
+      document.body.removeChild(input);
+    }
+  });
+</script>
