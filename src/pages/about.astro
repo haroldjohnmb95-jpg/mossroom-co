@@ -5,7 +5,7 @@ import { SITE } from '../config';
 
 <BaseLayout
   title="About Mossroom"
-  description="Mossroom exists to be the trusted knowledge hub for terrarium builders — no fluff, no AI slop, just real expertise."
+  description="Mossroom is the honest terrarium resource — run by people who are figuring this out, alongside you."
 >
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <h1 class="font-serif text-4xl md:text-5xl font-bold text-moss-900 mb-6">
@@ -14,43 +14,73 @@ import { SITE } from '../config';
 
     <div class="prose-moss">
       <p class="text-xl text-soil-700 leading-relaxed">
-        Mossroom exists because the terrarium community deserved better than the mess
-        of conflicting blog posts, decade-old YouTube tutorials, and Reddit threads that
-        bury the answer under five layers of "did you try…".
+        Mossroom exists because terrarium advice on the internet is a mess.
       </p>
 
-      <h2>What we do</h2>
       <p>
-        We write the definitive guides, plant profiles, sourcing maps, and
-        problem-solving playbooks for people building terrariums — from your first
-        jar of moss to your tenth bioactive vivarium.
+        If you've ever tried to build one, you know. Reddit threads go in circles.
+        YouTube tutorials contradict each other. Blog posts from 2011 say things
+        that may or may not still be true. Nobody actually explains <em>why</em> —
+        they just tell you what to do.
       </p>
 
-      <h2>What we don't do</h2>
+      <p>
+        We're not master horticulturists. We're people who got tired of being
+        confused by our own hobby. So we built the resource we wished existed:
+        one place, clear answers, honest about what we don't know.
+      </p>
+
+      <h2>What you'll find here</h2>
       <ul>
-        <li>We don't publish AI slop. Every article is reviewed by an actual builder.</li>
-        <li>We don't run sponsored posts disguised as guides. If a brand is linked, it's because we'd genuinely recommend it.</li>
-        <li>We don't pretend there's one right way. We tell you what works, when, and why — and flag the disagreements.</li>
+        <li>Care guides that explain the reasoning, not just the steps</li>
+        <li>Plant profiles for species that actually work in jars</li>
+        <li>Where to source moss, driftwood, and the hard-to-find stuff</li>
+        <li>Diagnosis help when something's dying and you don't know why</li>
+      </ul>
+
+      <h2>What you won't find</h2>
+      <ul>
+        <li><strong>Fake expertise.</strong> If we don't know, we say so.</li>
+        <li>Sponsored posts disguised as guides</li>
+        <li>AI-written content that sounds helpful but isn't</li>
+        <li>Gatekeeping about who counts as a "real" hobbyist</li>
       </ul>
 
       <h2>Who this is for</h2>
       <p>
-        Beginners who killed their first terrarium and want to understand why.
-        Intermediate builders sourcing better hardscape. Advanced keepers hunting
-        rare plant profiles and trade communities.
+        Anyone who's ever killed a terrarium and wants to figure out why.
+        Beginners looking for a clear starting point. People who like tiny worlds
+        and want company while they figure it out.
+      </p>
+
+      <p>
+        You don't need a green thumb. You need clear information and a community
+        that helps when things go sideways. That's what we're building.
       </p>
 
       <h2>Get involved</h2>
       <p>
-        The fastest way in is the <a href={SITE.discordUrl}>Discord community</a>.
-        The second fastest is the weekly newsletter — one tip, one community
-        question, one beautiful build. Free, no spam.
+        Have a build you're proud of? A question nobody's answered? A plant that
+        won't stop dying? Drop into the Discord — it's the fastest way to get help
+        and the easiest way to help the next person.
       </p>
 
-      <h2>Contact</h2>
       <p>
-        Email: <a href={`mailto:${SITE.email}`}>{SITE.email}</a><br />
-        Built by a solo founder on Cloudflare Pages. Hosted on the edge. Powered by moss.
+        Want a weekly terrarium tip in your inbox?
+        <a href="#newsletter">Subscribe to the newsletter</a> — one small thing,
+        every Friday.
+      </p>
+
+      <p>
+        Want to write for us, share a build, or report something that needs fixing?
+        Email <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+      </p>
+
+      <hr class="my-12 border-moss-200" />
+
+      <p class="text-soil-600 italic">
+        Mossroom is built by humans who are still figuring it out, alongside you.
+        That's the whole point.
       </p>
     </div>
   </div>
