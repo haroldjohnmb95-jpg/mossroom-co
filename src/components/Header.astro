@@ -1,0 +1,94 @@
+---
+import { SITE } from '../config';
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/articles', label: 'All Guides' },
+  { href: '/categories/care-guide', label: 'Care' },
+  { href: '/categories/plant-profile', label: 'Plants' },
+  { href: '/categories/sourcing', label: 'Sourcing' },
+  { href: '/categories/problem-solving', label: 'Problems' },
+  { href: '/about', label: 'About' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="bg-moss-50/80 backdrop-blur border-b border-moss-200 sticky top-0 z-40">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="/" class="flex items-center gap-2 group">
+        <span class="text-2xl">🌿</span>
+        <span class="font-serif text-xl font-bold text-moss-800 group-hover:text-moss-600 transition-colors">
+          Mossroom
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-1">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              'px-3 py-2 rounded-md text-sm font-medium transition-colors',
+              currentPath === link.href
+                ? 'text-moss-800 bg-moss-100'
+                : 'text-soil-700 hover:text-moss-700 hover:bg-moss-100/60',
+            ]}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <div class="hidden md:flex items-center gap-3">
+        <a
+          href={SITE.discordUrl}
+          target="_blank"
+          rel="noopener"
+          class="text-sm text-soil-700 hover:text-moss-700 font-medium"
+        >
+          💬 Discord
+        </a>
+        <a
+          href="#newsletter"
+          class="bg-moss-600 hover:bg-moss-700 text-white text-sm font-medium px-4 py-2 rounded-md transition-colors"
+        >
+          Get weekly tips
+        </a>
+      </div>
+
+      <button
+        id="mobile-menu-button"
+        class="md:hidden p-2 rounded-md text-soil-700 hover:bg-moss-100"
+        aria-label="Open menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden pb-4">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="block px-3 py-2 rounded-md text-base font-medium text-soil-700 hover:bg-moss-100"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="#newsletter"
+        class="block mt-2 px-3 py-2 bg-moss-600 text-white rounded-md font-medium text-center"
+      >
+        Get weekly tips
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+</script>

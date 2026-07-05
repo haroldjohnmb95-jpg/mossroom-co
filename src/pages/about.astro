@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config';
+---
+
+<BaseLayout
+  title="About Mossroom"
+  description="Mossroom exists to be the trusted knowledge hub for terrarium builders — no fluff, no AI slop, just real expertise."
+>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h1 class="font-serif text-4xl md:text-5xl font-bold text-moss-900 mb-6">
+      About Mossroom
+    </h1>
+
+    <div class="prose-moss">
+      <p class="text-xl text-soil-700 leading-relaxed">
+        Mossroom exists because the terrarium community deserved better than the mess
+        of conflicting blog posts, decade-old YouTube tutorials, and Reddit threads that
+        bury the answer under five layers of "did you try…".
+      </p>
+
+      <h2>What we do</h2>
+      <p>
+        We write the definitive guides, plant profiles, sourcing maps, and
+        problem-solving playbooks for people building terrariums — from your first
+        jar of moss to your tenth bioactive vivarium.
+      </p>
+
+      <h2>What we don't do</h2>
+      <ul>
+        <li>We don't publish AI slop. Every article is reviewed by an actual builder.</li>
+        <li>We don't run sponsored posts disguised as guides. If a brand is linked, it's because we'd genuinely recommend it.</li>
+        <li>We don't pretend there's one right way. We tell you what works, when, and why — and flag the disagreements.</li>
+      </ul>
+
+      <h2>Who this is for</h2>
+      <p>
+        Beginners who killed their first terrarium and want to understand why.
+        Intermediate builders sourcing better hardscape. Advanced keepers hunting
+        rare plant profiles and trade communities.
+      </p>
+
+      <h2>Get involved</h2>
+      <p>
+        The fastest way in is the <a href={SITE.discordUrl}>Discord community</a>.
+        The second fastest is the weekly newsletter — one tip, one community
+        question, one beautiful build. Free, no spam.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Email: <a href={`mailto:${SITE.email}`}>{SITE.email}</a><br />
+        Built by a solo founder on Cloudflare Pages. Hosted on the edge. Powered by moss.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

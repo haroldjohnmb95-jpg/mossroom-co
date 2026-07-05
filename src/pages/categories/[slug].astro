@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const categories = [
+    { slug: 'care-guide', label: 'Care guides' },
+    { slug: 'plant-profile', label: 'Plant profiles' },
+    { slug: 'sourcing', label: 'Sourcing' },
+    { slug: 'problem-solving', label: 'Problem solving' },
+    { slug: 'inspiration', label: 'Inspiration' },
+    { slug: 'beginner', label: 'Beginner' },
+  ];
+  return categories.map((c) => ({ params: { slug: c.slug }, props: { ...c } }));
+}
+
+const { slug, label } = Astro.props;
+const articles = await getCollection(
+  'articles',
+  ({ data }) => !data.draft && data.category === slug
+);
+const sorted = articles.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<BaseLayout
+  title={`${label} — Mossroom`}
+  description={`${label} from Mossroom — terrarium guides, plant profiles, and sourcing tips.`}
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <nav class="text-sm text-soil-500 mb-3">
+      <a href="/articles" class="hover:text-moss-700">All guides</a> ›
+    </nav>
+    <header class="mb-12">
+      <h1 class="font-serif text-4xl md:text-5xl font-bold text-moss-900 mb-3 capitalize">
+        {label}
+      </h1>
+      <p class="text-soil-600 text-lg">
+        {sorted.length} {sorted.length === 1 ? 'article' : 'articles'} in this category.
+      </p>
+    </header>
+
+    {sorted.length === 0 ? (
+      <p class="text-soil-600">No articles yet in this category. Check back soon.</p>
+    ) : (
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sorted.map((a) => <ArticleCard article={a} />)}
+      </div>
+    )}
+  </div>
+</BaseLayout>

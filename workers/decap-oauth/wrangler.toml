@@ -1,0 +1,13 @@
+name = "decap-oauth"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+# Decap CMS OAuth proxy
+# This worker handles GitHub OAuth for the Decap CMS admin panel at /admin.
+# Deploy with: wrangler deploy
+#
+# After deploying, set secrets:
+#   wrangler secret put GITHUB_CLIENT_ID
+#   wrangler secret put GITHUB_CLIENT_SECRET
+#
+# Then update /public/admin/config.yml with this worker's URL.

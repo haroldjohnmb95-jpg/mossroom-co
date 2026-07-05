@@ -1,0 +1,133 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: article,
+  }));
+}
+
+type Props = CollectionEntry<'articles'>;
+const article = Astro.props;
+const { Content } = await article.render();
+
+const categoryLabels: Record<string, string> = {
+  'care-guide': 'Care guide',
+  'plant-profile': 'Plant profile',
+  sourcing: 'Sourcing',
+  'problem-solving': 'Problem solving',
+  inspiration: 'Inspiration',
+  beginner: 'Beginner',
+};
+
+const categoryColors: Record<string, string> = {
+  'care-guide': 'badge-care',
+  'plant-profile': 'badge-plant',
+  sourcing: 'badge-source',
+  'problem-solving': 'badge-problem',
+  inspiration: 'badge-inspiration',
+  beginner: 'badge-beginner',
+};
+---
+
+<BaseLayout
+  title={article.data.title}
+  description={article.data.description}
+  type="article"
+  publishedDate={article.data.pubDate}
+  author={article.data.author}
+>
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <nav class="text-sm text-soil-500 mb-6">
+      <a href="/" class="hover:text-moss-700">Home</a> ›
+      <a href="/articles" class="hover:text-moss-700">Guides</a> ›
+      <a href={`/categories/${article.data.category}`} class="hover:text-moss-700 capitalize">
+        {categoryLabels[article.data.category]}
+      </a>
+    </nav>
+
+    <header class="mb-10">
+      <div class="flex items-center gap-2 mb-4 flex-wrap">
+        <span class={`badge ${categoryColors[article.data.category]}`}>
+          {categoryLabels[article.data.category]}
+        </span>
+        {article.data.difficulty && (
+          <span class="badge bg-soil-100 text-soil-700 capitalize">
+            {article.data.difficulty}
+          </span>
+        )}
+        {article.data.tags.slice(0, 3).map((tag) => (
+          <span class="badge bg-moss-50 text-moss-700">#{tag}</span>
+        ))}
+      </div>
+
+      <h1 class="font-serif text-4xl md:text-5xl font-bold text-moss-900 leading-tight mb-5">
+        {article.data.title}
+      </h1>
+      <p class="text-xl text-soil-700 leading-relaxed mb-6">
+        {article.data.description}
+      </p>
+      <div class="flex items-center gap-4 text-sm text-soil-500 pb-6 border-b border-moss-200">
+        <span>By {article.data.author}</span>
+        <span>·</span>
+        <time datetime={article.data.pubDate.toISOString()}>
+          {article.data.pubDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+        </time>
+        {article.data.readingTime && (
+          <>
+            <span>·</span>
+            <span>{article.data.readingTime} min read</span>
+          </>
+        )}
+      </div>
+    </header>
+
+    {article.data.cover && (
+      <figure class="mb-10">
+        <img
+          src={article.data.cover.src}
+          alt={article.data.coverAlt || article.data.title}
+          class="w-full rounded-2xl shadow-md"
+        />
+        {article.data.coverAlt && (
+          <figcaption class="text-sm text-soil-500 text-center mt-3 italic">
+            {article.data.coverAlt}
+          </figcaption>
+        )}
+      </figure>
+    )}
+
+    <div class="prose-moss">
+      <Content />
+    </div>
+
+    <footer class="mt-16 pt-8 border-t border-moss-200">
+      <div class="bg-moss-50 border border-moss-200 rounded-xl p-6 mb-8">
+        <h3 class="font-serif text-xl font-bold text-moss-800 mb-2">
+          Got questions?
+        </h3>
+        <p class="text-soil-700 mb-4">
+          Drop into the Mossroom Discord — over 200 builders sharing builds, troubleshooting
+          dying plants, and trading springtail cultures.
+        </p>
+        <a href="#" class="btn-primary">Join the community →</a>
+      </div>
+
+      <div class="flex items-center justify-between flex-wrap gap-4">
+        <p class="text-sm text-soil-500">
+          Found this helpful? Share it with a fellow builder.
+        </p>
+        <div class="flex items-center gap-3 text-sm">
+          <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.data.title)}&url=${encodeURIComponent(`https://mossroom.co/articles/${article.slug}`)}`} target="_blank" rel="noopener" class="text-soil-600 hover:text-moss-700">Twitter</a>
+          <span class="text-soil-300">·</span>
+          <a href={`https://www.reddit.com/submit?url=${encodeURIComponent(`https://mossroom.co/articles/${article.slug}`)}&title=${encodeURIComponent(article.data.title)}`} target="_blank" rel="noopener" class="text-soil-600 hover:text-moss-700">Reddit</a>
+          <span class="text-soil-300">·</span>
+          <a href={`mailto:?subject=${encodeURIComponent(article.data.title)}&body=${encodeURIComponent(`Check this out: https://mossroom.co/articles/${article.slug}`)}`} class="text-soil-600 hover:text-moss-700">Email</a>
+        </div>
+      </div>
+    </footer>
+  </article>
+</BaseLayout>

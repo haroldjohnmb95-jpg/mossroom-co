@@ -1,0 +1,54 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  article: CollectionEntry<'articles'>;
+}
+
+const { article } = Astro.props;
+const { data, slug } = article;
+
+const categoryLabels: Record<string, { label: string; cls: string }> = {
+  'care-guide': { label: 'Care guide', cls: 'badge-care' },
+  'plant-profile': { label: 'Plant profile', cls: 'badge-plant' },
+  sourcing: { label: 'Sourcing', cls: 'badge-source' },
+  'problem-solving': { label: 'Problem solving', cls: 'badge-problem' },
+  inspiration: { label: 'Inspiration', cls: 'badge-inspiration' },
+  beginner: { label: 'Beginner', cls: 'badge-beginner' },
+};
+
+const cat = categoryLabels[data.category];
+---
+
+<article class="group bg-white rounded-xl border border-moss-100 overflow-hidden hover:border-moss-300 hover:shadow-lg transition-all duration-200">
+  <a href={`/articles/${slug}`} class="block">
+    {data.cover && (
+      <div class="aspect-video bg-moss-100 overflow-hidden">
+        <img
+          src={data.cover.src}
+          alt={data.coverAlt || data.title}
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          loading="lazy"
+        />
+      </div>
+    )}
+    <div class="p-5">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        {cat && <span class={`badge ${cat.cls}`}>{cat.label}</span>}
+        {data.difficulty && (
+          <span class="badge bg-soil-100 text-soil-700 capitalize">{data.difficulty}</span>
+        )}
+      </div>
+      <h3 class="font-serif text-lg font-bold text-moss-800 mb-2 group-hover:text-moss-600 transition-colors leading-snug">
+        {data.title}
+      </h3>
+      <p class="text-sm text-soil-700 line-clamp-3 mb-3">{data.description}</p>
+      <div class="flex items-center justify-between text-xs text-soil-500">
+        <time datetime={data.pubDate.toISOString()}>
+          {data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+        </time>
+        {data.readingTime && <span>{data.readingTime} min read</span>}
+      </div>
+    </div>
+  </a>
+</article>

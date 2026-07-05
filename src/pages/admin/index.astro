@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Content Manager — Mossroom</title>
+  </head>
+  <body>
+    <!--
+      Decap CMS admin panel.
+      Authentication: GitHub OAuth (backend: github).
+      To make this work after deployment:
+        1. Create a GitHub OAuth App (https://github.com/settings/developers)
+           - Homepage URL: https://mossroom.co
+           - Callback URL: https://mossroom.co/admin/callback
+        2. Deploy the included Cloudflare Worker (see /workers/oauth/README.md)
+           which proxies OAuth tokens to Decap CMS securely.
+        3. Update `backend.base_url` below with your Worker URL.
+
+      Alternative: use a hosted OAuth provider such as
+        https://github.com/vencax/netlify-cms-github-oauth-provider
+      and point `backend.base_url` to its public URL.
+    -->
+    <script src="https://unpkg.com/decap-cms@^3.8.4/dist/decap-cms.js"></script>
+  </body>
+</html>

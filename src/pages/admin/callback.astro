@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>OAuth Callback — Mossroom</title>
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <script>
+      // Decap CMS OAuth callback. Hands the auth result back to the opener
+      // (the CMS iframe in /admin) and closes this popup window.
+      const params = new URLSearchParams(window.location.search);
+      const message = { type: 'authorization_response' };
+      for (const [k, v] of params.entries()) {
+        message[k] = v;
+      }
+      window.opener?.postMessage(message, '*');
+      window.close();
+    </script>
+  </body>
+</html>

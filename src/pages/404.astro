@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Page not found" description="The page you're looking for doesn't exist.">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+    <h1 class="font-serif text-7xl font-bold text-moss-300 mb-4">404</h1>
+    <h2 class="font-serif text-2xl font-bold text-moss-800 mb-3">
+      This page hasn't rooted yet.
+    </h2>
+    <p class="text-soil-600 mb-8">
+      The page you're looking for doesn't exist — but you might find what you need below.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="/" class="btn-primary">Back to home</a>
+      <a href="/articles" class="btn-secondary">Browse all guides</a>
+    </div>
+  </div>
+</BaseLayout>

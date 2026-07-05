@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+const articles = await getCollection('articles', ({ data }) => !data.draft);
+const sorted = articles.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const groups: Record<string, typeof articles> = {};
+for (const a of sorted) {
+  const year = a.data.pubDate.getFullYear().toString();
+  if (!groups[year]) groups[year] = [];
+  groups[year].push(a);
+}
+const years = Object.keys(groups).sort().reverse();
+---
+
+<BaseLayout
+  title="All guides"
+  description="Every terrarium guide, plant profile, and sourcing tip from Mossroom."
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <header class="mb-12">
+      <h1 class="font-serif text-4xl md:text-5xl font-bold text-moss-900 mb-3">
+        All guides
+      </h1>
+      <p class="text-soil-600 text-lg">
+        Every terrarium care guide, plant profile, sourcing tip, and problem-solving
+        post — {sorted.length} and counting.
+      </p>
+    </header>
+
+    {years.map((year) => (
+      <section class="mb-16">
+        <h2 class="font-serif text-2xl font-bold text-moss-700 mb-6 pb-2 border-b border-moss-200">
+          {year}
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {groups[year].map((a) => <ArticleCard article={a} />)}
+        </div>
+      </section>
+    ))}
+  </div>
+</BaseLayout>

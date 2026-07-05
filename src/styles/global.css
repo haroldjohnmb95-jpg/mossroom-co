@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+  /* Selection */
+  ::selection {
+    background-color: #c8dbbf;
+    color: #283821;
+  }
+}
+
+@layer components {
+  .prose-moss {
+    @apply text-soil-800 leading-relaxed;
+  }
+  .prose-moss h2 {
+    @apply text-2xl md:text-3xl font-bold text-moss-800 mt-12 mb-4;
+  }
+  .prose-moss h3 {
+    @apply text-xl md:text-2xl font-semibold text-moss-700 mt-8 mb-3;
+  }
+  .prose-moss p {
+    @apply mb-5 text-lg;
+  }
+  .prose-moss ul, .prose-moss ol {
+    @apply mb-5 pl-6;
+  }
+  .prose-moss ul { @apply list-disc; }
+  .prose-moss ol { @apply list-decimal; }
+  .prose-moss li {
+    @apply mb-2;
+  }
+  .prose-moss a {
+    @apply text-moss-600 underline underline-offset-4 decoration-moss-300 hover:text-moss-800 hover:decoration-moss-600;
+  }
+  .prose-moss blockquote {
+    @apply border-l-4 border-moss-300 pl-4 italic text-soil-700 my-6;
+  }
+  .prose-moss code {
+    @apply bg-moss-100 text-moss-800 px-1.5 py-0.5 rounded text-sm font-mono;
+  }
+  .prose-moss pre {
+    @apply bg-moss-900 text-moss-50 p-4 rounded-lg overflow-x-auto my-6;
+  }
+  .prose-moss pre code {
+    @apply bg-transparent text-moss-50 p-0;
+  }
+  .prose-moss img {
+    @apply rounded-lg my-8 w-full;
+  }
+  .prose-moss table {
+    @apply w-full my-6 border-collapse;
+  }
+  .prose-moss th {
+    @apply bg-moss-100 text-moss-800 px-4 py-2 text-left font-semibold border border-moss-200;
+  }
+  .prose-moss td {
+    @apply px-4 py-2 border border-moss-200;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .badge-care { @apply bg-moss-100 text-moss-800; }
+  .badge-plant { @apply bg-glass-100 text-glass-800; }
+  .badge-source { @apply bg-soil-100 text-soil-800; }
+  .badge-problem { @apply bg-red-100 text-red-800; }
+  .badge-beginner { @apply bg-yellow-100 text-yellow-800; }
+  .badge-inspiration { @apply bg-purple-100 text-purple-800; }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-moss-600 hover:bg-moss-700 text-white font-medium px-5 py-2.5 rounded-md transition-colors;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 bg-white hover:bg-moss-50 text-moss-700 border border-moss-300 font-medium px-5 py-2.5 rounded-md transition-colors;
+  }
+}
