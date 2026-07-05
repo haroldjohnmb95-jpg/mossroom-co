@@ -14,7 +14,7 @@ interface Props {
 
 const {
   title,
-  description = 'Mossroom — the trusted knowledge hub for terrarium builders. Care guides, plant profiles, sourcing tips, and problem-solving.',
+  description = 'Mossroom — the honest terrarium resource. Clear answers, no fake expertise.',
   image = '/og-default.jpg',
   type = 'website',
   publishedDate,
@@ -66,8 +66,7 @@ const fullImageURL = new URL(image, Astro.site).toString();
       rel="stylesheet"
     />
 
-    <!-- Plausible Analytics (privacy-friendly, free under 10k visits) -->
-    <script defer data-domain="mossroom.co" src="https://plausible.io/js/script.js"></script>
+    <!-- Cloudflare Web Analytics auto-tracks at the edge, $0 forever -->
 
     <!-- RSS -->
     <link
