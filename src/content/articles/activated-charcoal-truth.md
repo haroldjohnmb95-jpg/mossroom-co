@@ -2,6 +2,7 @@
 title: "The activated charcoal myth: why your terrarium doesn't need it"
 description: "The case against the universal 'add activated charcoal' advice — and what to do instead. Backed by soil science, not tradition."
 pubDate: 2026-07-01
+cover: "/articles/matrix-media-1783322111634-bd8b5d75.png"
 category: problem-solving
 difficulty: intermediate
 tags: ["charcoal", "myths", "substrate"]
