@@ -1,0 +1,52 @@
+{
+  "tiers": {
+    "starter": {
+      "label": "Starter",
+      "description": "Hardy, forgiving plants. Hard to kill, tolerant of beginner mistakes, widely available.",
+      "pairs": [
+        { "plantA": "Pothos", "plantB": "Java Moss", "compatible": true, "reason": "Both tolerate a wide humidity range and low light; pothos roots won't rot even if the moss keeps the base consistently damp." },
+        { "plantA": "Pothos", "plantB": "Sheet Moss", "compatible": true, "reason": "Similar low-light, low-fuss needs; sheet moss controls surface moisture evaporation, which pothos doesn't mind either way." },
+        { "plantA": "Peperomia (any)", "plantB": "Cushion Moss", "compatible": true, "reason": "Peperomia prefers slightly drier soil than moss wants, but in an open terrarium the airflow keeps both happy." },
+        { "plantA": "Pilea (Chinese Money Plant)", "plantB": "Java Moss", "compatible": true, "reason": "Pilea likes bright indirect light and moderate moisture, matching moss's preferences closely enough for open setups." },
+        { "plantA": "Fittonia (Nerve Plant)", "plantB": "Sheet Moss", "compatible": true, "reason": "Fittonia wilts fast when dry, so the humidity moss helps retain actually benefits it." },
+        { "plantA": "Baby's Tears (Soleirolia)", "plantB": "Cushion Moss", "compatible": true, "reason": "Both are dense, moisture-loving groundcovers with matching light and water needs — a very safe starter pairing." },
+        { "plantA": "Pothos", "plantB": "Baby's Tears", "compatible": true, "reason": "Baby's Tears stays low and won't compete with pothos for light; both tolerate similar watering schedules." },
+        { "plantA": "Peperomia", "plantB": "Pilea", "compatible": true, "reason": "Similar light and drainage needs; neither is aggressive enough to crowd the other out." },
+        { "plantA": "Fittonia", "plantB": "Baby's Tears", "compatible": true, "reason": "Both want consistent moisture and low-to-medium light — one of the easiest pairings for closed terrariums." },
+        { "plantA": "Pothos", "plantB": "Fittonia", "compatible": true, "reason": "Pothos can vine above while fittonia stays low; no competition for the same growing space." }
+      ]
+    },
+    "intermediate": {
+      "label": "Intermediate",
+      "description": "Plants with more specific humidity, light, or drainage needs. Require some monitoring and occasional adjustment.",
+      "pairs": [
+        { "plantA": "Maidenhair Fern", "plantB": "Sheet Moss", "compatible": true, "reason": "Both need consistently high humidity and no direct sun, but maidenhair fern will brown quickly if the terrarium dries out even briefly — needs monitoring." },
+        { "plantA": "Nerve Plant (Fittonia)", "plantB": "Button Fern", "compatible": true, "reason": "Compatible moisture needs, but button fern grows slower and can get shaded out if fittonia isn't trimmed back." },
+        { "plantA": "Polka Dot Plant", "plantB": "Java Moss", "compatible": true, "reason": "Polka dot plant wants brighter light than moss prefers; works only if light is filtered, not direct." },
+        { "plantA": "Prayer Plant (Maranta)", "plantB": "Cushion Moss", "compatible": false, "reason": "Maranta needs more airflow at the leaf surface than a moss-heavy closed setup allows — leaves can develop fungal spotting." },
+        { "plantA": "Peperomia", "plantB": "Sheet Moss", "compatible": false, "reason": "Sheet moss keeps soil wetter than peperomia's semi-succulent roots tolerate long-term, risking root rot in closed containers." },
+        { "plantA": "Button Fern", "plantB": "Baby's Tears", "compatible": true, "reason": "Similar shade and moisture needs, though baby's tears grows faster and needs regular trimming to avoid smothering the fern base." },
+        { "plantA": "Rabbit's Foot Fern", "plantB": "Java Moss", "compatible": true, "reason": "Both thrive in high humidity; the fern's rhizomes benefit from moss holding surface moisture, but need visible rhizome space, not full moss coverage." },
+        { "plantA": "Selaginella (Spikemoss)", "plantB": "Sheet Moss", "compatible": true, "reason": "Nearly identical moisture and light needs, but selaginella spreads aggressively and can outcompete moss without regular trimming." },
+        { "plantA": "Polka Dot Plant", "plantB": "Fittonia", "compatible": true, "reason": "Compatible moisture needs, but polka dot plant grows taller and can shade fittonia if not positioned carefully." },
+        { "plantA": "Miniature Orchid (e.g. Jewel Orchid)", "plantB": "Cushion Moss", "compatible": true, "reason": "Jewel orchids like the humidity moss provides, but need their crown kept clear of moss to avoid rot." }
+      ]
+    },
+    "hard": {
+      "label": "Advanced",
+      "description": "Plants with narrow humidity/light/pH tolerances, slow growth, or conflicting needs with common terrarium moss. For experienced builders willing to monitor closely.",
+      "pairs": [
+        { "plantA": "Sundew (Drosera)", "plantB": "Sheet Moss", "compatible": false, "reason": "Sundews need consistently moist, nutrient-poor, acidic substrate (typically sphagnum peat) — regular sheet moss and garden soil introduce nutrients that can kill carnivorous plant roots." },
+        { "plantA": "Sundew (Drosera)", "plantB": "Sphagnum Moss", "compatible": true, "reason": "Sphagnum moss is the correct low-nutrient, acidic substrate carnivorous plants evolved with — but strict care is needed to keep it consistently damp, not soggy." },
+        { "plantA": "Venus Flytrap", "plantB": "Sphagnum Moss", "compatible": true, "reason": "Same low-nutrient substrate requirement as sundews, but flytraps additionally need a genuine winter dormancy period most closed terrariums can't provide." },
+        { "plantA": "Miniature Orchid (Jewel Orchid)", "plantB": "Java Moss", "compatible": false, "reason": "Java moss is adapted to aquatic/semi-aquatic conditions and holds more water than jewel orchid roots tolerate against the crown." },
+        { "plantA": "Begonia (rhizomatous mini varieties)", "plantB": "Sheet Moss", "compatible": false, "reason": "Mini begonias are highly prone to powdery mildew in the still, constantly humid microclimate moss creates without active airflow." },
+        { "plantA": "Bladderwort (Utricularia)", "plantB": "Sphagnum Moss", "compatible": true, "reason": "Correct acidic, low-nutrient substrate match, but bladderwort needs standing water at the base, which most terrarium builds don't account for by default." },
+        { "plantA": "Pinguicula (Butterwort)", "plantB": "Cushion Moss", "compatible": false, "reason": "Butterworts need excellent drainage and lower ambient humidity at the leaf surface than cushion moss's microclimate provides, risking leaf rot." },
+        { "plantA": "Miniature Alocasia", "plantB": "Java Moss", "compatible": false, "reason": "Alocasia is highly sensitive to overwatering and moss-driven excess moisture is a common cause of stem rot in enclosed setups." },
+        { "plantA": "Cape Sundew", "plantB": "Live Sphagnum", "compatible": true, "reason": "Living sphagnum actively maintains the acidity and moisture band sundews need, but requires bright, indirect light most closed terrariums under-deliver." },
+        { "plantA": "Rare Fittonia cultivars (e.g. 'Superba Red')", "plantB": "Selaginella", "compatible": false, "reason": "Both are fast-spreading and moisture-competitive; selaginella's aggressive growth typically outcompetes delicate fittonia cultivars for root space within weeks." }
+      ]
+    }
+  }
+}
