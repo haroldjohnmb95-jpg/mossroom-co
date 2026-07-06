@@ -1,0 +1,110 @@
+---
+import compatibilityData from '../data/compatibility-data.json';
+
+// Flatten all tiers into one list, keeping the tier label on each pair
+const tiers = compatibilityData.tiers;
+const allPairs = Object.entries(tiers).flatMap(([tierKey, tier]) =>
+  tier.pairs.map((pair) => ({ ...pair, tierKey, tierLabel: tier.label }))
+);
+
+// Unique, sorted plant list for the dropdowns
+const plantSet = new Set();
+allPairs.forEach((p) => {
+  plantSet.add(p.plantA);
+  plantSet.add(p.plantB);
+});
+const plants = Array.from(plantSet).sort();
+---
+
+<div class="bg-moss-50 border border-moss-200 rounded-2xl p-6 md:p-8 my-10" id="compat-checker">
+  <h3 class="font-serif text-2xl font-bold text-moss-900 mb-2">Compatibility Checker</h3>
+  <p class="text-soil-700 mb-6">
+    Pick two plants (or a plant and a moss) to see if they play well together in a closed terrarium.
+  </p>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+    <div>
+      <label for="plantA" class="block text-sm font-medium text-soil-700 mb-1">First plant</label>
+      <select id="plantA" class="w-full rounded-md border border-moss-300 bg-white px-3 py-2 text-soil-800 focus:outline-none focus:ring-2 focus:ring-moss-400">
+        <option value="">Select a plant…</option>
+        {plants.map((p) => <option value={p}>{p}</option>)}
+      </select>
+    </div>
+    <div>
+      <label for="plantB" class="block text-sm font-medium text-soil-700 mb-1">Second plant</label>
+      <select id="plantB" class="w-full rounded-md border border-moss-300 bg-white px-3 py-2 text-soil-800 focus:outline-none focus:ring-2 focus:ring-moss-400">
+        <option value="">Select a plant…</option>
+        {plants.map((p) => <option value={p}>{p}</option>)}
+      </select>
+    </div>
+  </div>
+
+  <button type="button" id="checkBtn" class="btn-primary">Check compatibility</button>
+
+  <div id="result" class="mt-6 hidden"></div>
+  <div id="noData" class="mt-6 hidden text-soil-600 text-sm italic"></div>
+</div>
+
+<script type="application/json" id="compat-data">{JSON.stringify(allPairs)}</script>
+
+<script>
+  const dataEl = document.getElementById('compat-data');
+  const pairs = JSON.parse(dataEl?.textContent || '[]');
+
+  const plantA = document.getElementById('plantA');
+  const plantB = document.getElementById('plantB');
+  const checkBtn = document.getElementById('checkBtn');
+  const result = document.getElementById('result');
+  const noData = document.getElementById('noData');
+
+  const tierBadgeClass = {
+    starter: 'bg-yellow-100 text-yellow-800',
+    intermediate: 'bg-glass-100 text-glass-800',
+    hard: 'bg-red-100 text-red-800',
+  };
+
+  checkBtn?.addEventListener('click', () => {
+    const a = plantA.value;
+    const b = plantB.value;
+    result.classList.add('hidden');
+    noData.classList.add('hidden');
+
+    if (!a || !b) {
+      noData.textContent = 'Please select both plants.';
+      noData.classList.remove('hidden');
+      return;
+    }
+    if (a === b) {
+      noData.textContent = 'Please select two different plants.';
+      noData.classList.remove('hidden');
+      return;
+    }
+
+    const match = pairs.find(
+      (p) =>
+        (p.plantA === a && p.plantB === b) ||
+        (p.plantA === b && p.plantB === a)
+    );
+
+    if (!match) {
+      noData.textContent = `We don't have data on ${a} + ${b} yet. In general, check that both plants share similar light and moisture needs before pairing them in a closed terrarium.`;
+      noData.classList.remove('hidden');
+      return;
+    }
+
+    const badgeClass = tierBadgeClass[match.tierKey] || 'bg-moss-100 text-moss-800';
+    const verdictColor = match.compatible ? 'text-moss-700' : 'text-red-700';
+    const verdictIcon = match.compatible ? '✓ Compatible' : '✗ Not recommended';
+
+    result.innerHTML = `
+      <div class="bg-white border border-moss-200 rounded-xl p-5">
+        <div class="flex items-center gap-2 mb-3 flex-wrap">
+          <span class="badge ${badgeClass}">${match.tierLabel}</span>
+          <span class="font-semibold ${verdictColor}">${verdictIcon}</span>
+        </div>
+        <p class="text-soil-800">${match.reason}</p>
+      </div>
+    `;
+    result.classList.remove('hidden');
+  });
+</script>
