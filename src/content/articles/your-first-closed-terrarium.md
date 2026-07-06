@@ -2,6 +2,7 @@
 title: "Your first closed terrarium: a no-fail setup guide"
 description: "A complete walkthrough for building your first closed terrarium in under an hour. Tools, layers, plants — no green thumb required."
 pubDate: 2026-07-02
+cover: "/articles/matrix-media-1783322111634-ac1f6a1a.png"
 category: beginner
 difficulty: beginner
 tags: ["beginner", "setup", "closed-terrarium"]
