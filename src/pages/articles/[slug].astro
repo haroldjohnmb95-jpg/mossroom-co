@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE } from '../../config';
+import CompatibilityChecker from '../../components/CompatibilityChecker.astro';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
@@ -146,12 +147,14 @@ const categoryColors: Record<string, string> = {
       <Content />
     </div>
 
+    {article.slug === 'plant-compatibility-closed-terrarium' && <CompatibilityChecker />}
+
     {related.length > 0 && (
       <section class="mt-16 pt-8 border-t border-moss-200">
         <h3 class="font-serif text-2xl font-bold text-moss-900 mb-6">More from Mossroom</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {related.map((r) => (
-            <a
+            
               href={`/articles/${r.slug}`}
               class="block bg-white border border-moss-200 hover:border-moss-400 rounded-xl p-5 transition-all hover:shadow-md group"
             >
@@ -186,7 +189,7 @@ const categoryColors: Record<string, string> = {
         </p>
         <div class="flex flex-wrap items-center gap-2">
           {shareLinks.map((link) => (
-            <a
+            
               href={link.href}
               target="_blank"
               rel="noopener"
