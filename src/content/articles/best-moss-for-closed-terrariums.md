@@ -2,6 +2,7 @@
 title: "Best moss varieties for closed terrariums (and which to skip)"
 description: "A side-by-side comparison of sheet moss, cushion moss, sphagnum, and mood moss — with real care notes for terrarium use."
 pubDate: 2026-07-04
+cover: "/articles/matrix-media-1783322111633-bfe0f7cc.png"
 category: care-guide
 difficulty: beginner
 tags: ["moss", "beginner", "planting"]
