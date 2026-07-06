@@ -2,7 +2,6 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE } from '../../config';
-import CompatibilityChecker from '../../components/CompatibilityChecker.astro';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
@@ -131,7 +130,7 @@ const categoryColors: Record<string, string> = {
     {article.data.cover && (
       <figure class="mb-10">
         <img
-          src={article.data.cover.src}
+          src={article.data.cover}
           alt={article.data.coverAlt || article.data.title}
           class="w-full rounded-2xl shadow-md"
         />
@@ -146,8 +145,6 @@ const categoryColors: Record<string, string> = {
     <div class="prose-moss">
       <Content />
     </div>
-
-    {article.slug === 'plant-compatibility-closed-terrarium' && <CompatibilityChecker />}
 
     {related.length > 0 && (
       <section class="mt-16 pt-8 border-t border-moss-200">
