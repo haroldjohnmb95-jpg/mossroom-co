@@ -2,6 +2,7 @@
 title: "Fittonia (nerve plant) terrarium care guide"
 description: "Everything you need to keep a fittonia alive in a closed terrarium — light, water, pruning, propagation. The most popular terrarium plant for good reason."
 pubDate: 2026-06-30
+cover: "/articles/matrix-media-1783322111634-b32bafdb.png"
 category: plant-profile
 difficulty: beginner
 tags: ["fittonia", "plant-profile", "beginner"]
