@@ -2,6 +2,7 @@
 title: "Why your moss is turning brown (and exactly how to fix it)"
 description: "Five real reasons terrarium moss dies, with diagnosis steps and a recovery plan for each. The most common problem we see in r/terrariums."
 pubDate: 2026-07-03
+cover: "/articles/matrix-media-1783322111633-b9f04b62.png"
 category: problem-solving
 difficulty: beginner
 tags: ["moss", "diagnosis", "humidity"]
