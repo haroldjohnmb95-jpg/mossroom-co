@@ -21,7 +21,7 @@ const articles = defineCollection({
       difficulty: z.enum(['beginner', 'intermediate', 'advanced']).optional(),
       readingTime: z.number().optional(),
       author: z.string().default('Mossroom Team'),
-      cover: image().optional(),
+      cover: z.string().optional(),
       coverAlt: z.string().optional(),
       draft: z.boolean().default(false),
       featured: z.boolean().default(false),
