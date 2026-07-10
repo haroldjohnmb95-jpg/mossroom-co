@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "description": "U.S. economic nexus thresholds for remote sellers",
+    "last_verified": "2026-07-08"
+  },
+  "states": [
+    {"state": "Alabama", "code": "AL", "sales_threshold": 250000, "transaction_threshold": null, "threshold_type": "sales_only"},
+    {"state": "Alaska", "code": "AK", "sales_threshold": 100000, "transaction_threshold": null, "threshold_type": "sales_only"}
+  ]
+}

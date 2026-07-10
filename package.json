@@ -1,26 +1,14 @@
 {
-  "name": "mossroom-co",
-  "type": "module",
-  "version": "0.1.0",
+  "name": "mossroom-nexus-check",
   "private": true,
-  "description": "Mossroom — the trusted knowledge hub for terrarium builders",
+  "version": "0.0.1",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.5.0",
-    "@astrojs/mdx": "^4.2.3",
-    "@astrojs/rss": "^4.0.11",
-    "@astrojs/sitemap": "^3.4.0",
-    "astro": "^5.7.5",
-    "tailwindcss": "^3.4.17",
-    "@astrojs/tailwind": "^6.0.2"
-  },
-  "devDependencies": {
-    "decap-cms-app": "^3.8.4"
+    "astro": "^4.16.0"
   }
 }
