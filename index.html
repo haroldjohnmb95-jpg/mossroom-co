@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Your complete guide to terrariums, moss care, and indoor jungle building. Learn from real hobbyists.">
-  <title>Mossroom.co • Terrariums & Moss Care</title>
+  <meta name="description" content="Complete guide to terrariums, moss care, and indoor jungle building. Learn from hobbyists.">
+  <title>Mossroom.co • Terrariums & Moss Care Hub</title>
   <style>
     :root {
       --green: #166534;
@@ -12,25 +12,25 @@
       --dark: #052e16;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #1f2937; background: #f8faf5; }
+    body { font-family: system-ui, sans-serif; line-height: 1.7; color: #1f2937; background: #f8faf5; }
+    .nav { background: white; padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
     .hero {
-      background: linear-gradient(rgba(5,46,22,0.75), rgba(5,46,22,0.75)), url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
+      background: linear-gradient(rgba(5,46,22,0.7), rgba(5,46,22,0.7)), url('https://images.pexels.com/photos/2086623/pexels-photo-2086623.jpeg') center/cover;
       color: white;
       text-align: center;
-      padding: 180px 20px 100px;
+      padding: 160px 20px 120px;
     }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-    h1 { font-size: 3.5rem; margin-bottom: 1rem; }
-    h2 { font-size: 2.2rem; color: var(--dark); margin: 3rem 0 1.5rem; text-align: center; }
+    h1 { font-size: 3.4rem; }
+    h2 { font-size: 2.3rem; color: var(--dark); text-align: center; margin: 3rem 0 2rem; }
     .card {
       background: white;
       border-radius: 16px;
       padding: 2rem;
       margin: 1.5rem 0;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
-    .card:hover { transform: translateY(-8px); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
     button {
       background: var(--green);
       color: white;
@@ -40,9 +40,8 @@
       font-size: 1.1rem;
       cursor: pointer;
     }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    footer { background: var(--dark); color: #e0f2e9; text-align: center; padding: 3rem 1rem; margin-top: 4rem; }
-    .nav { background: white; padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    footer { background: var(--dark); color: #e0f2e9; text-align: center; padding: 4rem 1rem; margin-top: 4rem; }
+    img { max-width: 100%; border-radius: 12px; }
   </style>
 </head>
 <body>
@@ -51,18 +50,19 @@
     <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
       <h2 style="color:var(--green); margin:0;">Mossroom.co</h2>
       <div>
-        <a href="#guides" style="margin:0 15px; color:#1f2937;">Guides</a>
-        <a href="#checker" style="margin:0 15px; color:#1f2937;">Compatibility Tool</a>
-        <a href="#gallery" style="margin:0 15px; color:#1f2937;">Gallery</a>
+        <a href="#guides" style="margin:0 15px; color:#1f2937; text-decoration:none;">Guides</a>
+        <a href="#checker" style="margin:0 15px; color:#1f2937; text-decoration:none;">Compatibility Tool</a>
+        <a href="#gallery" style="margin:0 15px; color:#1f2937; text-decoration:none;">Gallery</a>
+        <a href="#faq" style="margin:0 15px; color:#1f2937; text-decoration:none;">FAQ</a>
       </div>
     </div>
   </nav>
 
   <div class="hero">
     <div class="container">
-      <h1>Welcome to Mossroom</h1>
-      <p style="font-size:1.5rem; max-width:700px; margin:20px auto;">Your home for beautiful terrariums, lush moss gardens, and thriving indoor jungles.</p>
-      <button onclick="document.getElementById('checker').scrollIntoView({behavior:'smooth'})">Try Compatibility Tool</button>
+      <h1>Mossroom.co</h1>
+      <p style="font-size:1.6rem; max-width:720px; margin:20px auto;">Helping you build and maintain beautiful terrariums and moss gardens</p>
+      <button onclick="document.getElementById('checker').scrollIntoView({behavior:'smooth'})">Start with Compatibility Tool →</button>
     </div>
   </div>
 
@@ -72,43 +72,46 @@
     <section id="checker">
       <h2>🌿 Plant & Moss Compatibility Checker</h2>
       <div class="card">
-        <p><strong>Select plants/mosses you want to combine:</strong></p>
-        <select id="plant1" style="width:100%; padding:12px; margin:10px 0; border-radius:8px;">
-          <option value="">Choose first plant...</option>
+        <select id="plant1" style="width:100%; padding:14px; margin:10px 0; border-radius:8px; font-size:1.1rem;">
+          <option value="">Select First Plant/Moss</option>
           <option value="Java Moss">Java Moss</option>
           <option value="Sphagnum Moss">Sphagnum Moss</option>
           <option value="Pothos">Pothos</option>
-          <option value="Fittonia">Fittonia (Nerve Plant)</option>
+          <option value="Fittonia">Fittonia</option>
           <option value="Fern">Mini Fern</option>
+          <option value="Anubias">Anubias</option>
+          <option value="Bromeliad">Bromeliad</option>
         </select>
-        <select id="plant2" style="width:100%; padding:12px; margin:10px 0; border-radius:8px;">
-          <option value="">Choose second plant...</option>
+        <select id="plant2" style="width:100%; padding:14px; margin:10px 0; border-radius:8px; font-size:1.1rem;">
+          <option value="">Select Second Plant/Moss</option>
           <option value="Java Moss">Java Moss</option>
           <option value="Sphagnum Moss">Sphagnum Moss</option>
           <option value="Pothos">Pothos</option>
-          <option value="Fittonia">Fittonia (Nerve Plant)</option>
+          <option value="Fittonia">Fittonia</option>
           <option value="Fern">Mini Fern</option>
+          <option value="Anubias">Anubias</option>
+          <option value="Bromeliad">Bromeliad</option>
         </select>
         <button onclick="checkCompatibility()" style="width:100%; margin-top:15px;">Check Compatibility</button>
-        <div id="result" style="margin-top:20px; font-weight:600; min-height:50px;"></div>
+        <div id="result" style="margin-top:20px; font-size:1.2rem; min-height:60px;"></div>
       </div>
     </section>
 
     <!-- Guides -->
     <section id="guides">
-      <h2>Popular Care Guides</h2>
+      <h2>Essential Care Guides</h2>
       <div class="grid">
         <div class="card">
           <h3>Java Moss Care</h3>
-          <p>Low light, high humidity, perfect for beginners. Grows on almost anything.</p>
+          <p>Extremely hardy, low light, loves high humidity. Great for beginners and aquariums.</p>
         </div>
         <div class="card">
-          <h3>Sphagnum Moss</h3>
-          <p>Excellent for humidity control and as a base layer in terrariums.</p>
+          <h3>Closed Terrarium Setup</h3>
+          <p>Step-by-step guide to creating self-sustaining ecosystems.</p>
         </div>
         <div class="card">
-          <h3>Closed Terrarium Basics</h3>
-          <p>Self-sustaining ecosystems — learn the perfect balance.</p>
+          <h3>Sphagnum Moss Uses</h3>
+          <p>Best for moisture retention and as a living substrate.</p>
         </div>
       </div>
     </section>
@@ -117,17 +120,30 @@
     <section id="gallery">
       <h2>Inspiration Gallery</h2>
       <div class="grid">
-        <img src="https://picsum.photos/id/1015/600/400" style="width:100%; border-radius:12px;" alt="Terrarium">
-        <img src="https://picsum.photos/id/133/600/400" style="width:100%; border-radius:12px;" alt="Moss garden">
-        <img src="https://picsum.photos/id/201/600/400" style="width:100%; border-radius:12px;" alt="Indoor jungle">
+        <img src="https://images.pexels.com/photos/2086623/pexels-photo-2086623.jpeg" alt="Closed terrarium">
+        <img src="https://images.pexels.com/photos/1438833/pexels-photo-1438833.jpeg" alt="Moss garden">
+        <img src="https://images.pexels.com/photos/3968168/pexels-photo-3968168.jpeg" alt="Lush terrarium">
+        <img src="https://images.pexels.com/photos/4503273/pexels-photo-4503273.jpeg" alt="Java moss">
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="card">
+        <h3>How often should I water my terrarium?</h3>
+        <p>Closed terrariums rarely need watering — usually once every 3–6 months.</p>
+      </div>
+      <div class="card">
+        <h3>What moss is best for beginners?</h3>
+        <p>Java Moss is the most forgiving and grows quickly.</p>
       </div>
     </section>
 
   </div>
 
   <footer>
-    <p>&copy; 2026 Mossroom.co • Made for Terrarium & Moss Enthusiasts</p>
-    <p style="margin-top:10px; opacity:0.8;">Share your builds with us!</p>
+    <p>&copy; 2026 Mossroom.co • A hobbyist resource for terrarium lovers</p>
   </footer>
 
   <script>
@@ -137,14 +153,10 @@
       const result = document.getElementById('result');
 
       if (!p1 || !p2) {
-        result.innerHTML = `<span style="color:orange;">Please select two plants.</span>`;
+        result.innerHTML = `<span style="color: #ca8a04;">Please select two items.</span>`;
         return;
       }
-      if (p1 === p2) {
-        result.innerHTML = `<span style="color:green;">Perfect match! Same species grow very well together.</span>`;
-      } else {
-        result.innerHTML = `<span style="color:green;">Good compatibility! Both ${p1} and ${p2} enjoy high humidity and indirect light.</span>`;
-      }
+      result.innerHTML = `<span style="color: #166534;">✅ Great combination! Both ${p1} and ${p2} thrive in high humidity and indirect light.</span>`;
     }
   </script>
 </body>
