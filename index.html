@@ -19,9 +19,9 @@
       <h1 class="text-3xl font-bold text-emerald-700">Mossroom.co</h1>
       <div class="space-x-8 text-lg">
         <a href="#guides" class="hover:text-emerald-600">Guides</a>
-        <a href="#checker" class="hover:text-emerald-600">Compatibility Tool</a>
+        <a href="#checker" class="hover:text-emerald-600">Tool</a>
         <a href="#gallery" class="hover:text-emerald-600">Gallery</a>
-        <a href="#community" class="hover:text-emerald-600">Community</a>
+        <a href="#support" class="hover:text-emerald-600 font-medium">Support</a>
       </div>
     </div>
   </nav>
@@ -30,10 +30,10 @@
   <section class="hero-bg bg-cover bg-center text-white py-32">
     <div class="max-w-4xl mx-auto text-center px-6">
       <h2 class="text-5xl md:text-6xl font-bold mb-6">Build Your Own Green World</h2>
-      <p class="text-xl md:text-2xl mb-8">Everything you need to create and care for beautiful terrariums and moss gardens</p>
+      <p class="text-xl md:text-2xl mb-8">Free resources for terrarium & moss lovers</p>
       <button onclick="document.getElementById('checker').scrollIntoView({behavior:'smooth'})" 
               class="bg-emerald-600 hover:bg-emerald-700 text-white px-10 py-4 rounded-xl text-lg font-medium">
-        Try the Compatibility Tool
+        Try Compatibility Tool
       </button>
     </div>
   </section>
@@ -41,7 +41,7 @@
   <!-- Compatibility Checker -->
   <section id="checker" class="py-16 bg-white">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-10 text-emerald-800">Plant & Moss Compatibility Checker</h2>
+      <h2 class="text-4xl font-bold text-center mb-10 text-emerald-800">🌿 Plant & Moss Compatibility Checker</h2>
       <div class="bg-emerald-50 p-8 rounded-3xl">
         <div class="grid md:grid-cols-2 gap-6">
           <select id="plant1" class="w-full p-4 rounded-2xl border border-emerald-200 text-lg">
@@ -80,15 +80,15 @@
       <div class="grid md:grid-cols-3 gap-8">
         <div class="bg-white rounded-3xl p-8 shadow-lg">
           <h3 class="text-2xl font-semibold mb-4">Java Moss</h3>
-          <p class="text-gray-600">Extremely hardy, low maintenance, perfect for beginners and aquariums.</p>
+          <p class="text-gray-600">Extremely hardy, low maintenance, perfect for beginners.</p>
         </div>
         <div class="bg-white rounded-3xl p-8 shadow-lg">
           <h3 class="text-2xl font-semibold mb-4">Closed Terrariums</h3>
-          <p class="text-gray-600">How to create self-sustaining ecosystems that need almost no care.</p>
+          <p class="text-gray-600">Create self-sustaining mini ecosystems.</p>
         </div>
         <div class="bg-white rounded-3xl p-8 shadow-lg">
           <h3 class="text-2xl font-semibold mb-4">Sphagnum Moss</h3>
-          <p class="text-gray-600">Best for moisture control and as a beautiful living substrate.</p>
+          <p class="text-gray-600">Best for moisture retention and substrate.</p>
         </div>
       </div>
     </div>
@@ -107,13 +107,20 @@
     </div>
   </section>
 
-  <!-- Newsletter -->
-  <section class="py-16 bg-white">
-    <div class="max-w-xl mx-auto text-center px-6">
-      <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
-      <p class="mb-8">Get new care tips, build ideas, and moss news delivered to your inbox.</p>
-      <input type="email" placeholder="Your email address" class="w-full max-w-md p-4 rounded-2xl border border-emerald-200 text-lg mb-4">
-      <button class="bg-emerald-700 text-white px-12 py-4 rounded-2xl text-lg">Subscribe Free</button>
+  <!-- Support Section -->
+  <section id="support" class="py-20 bg-emerald-900 text-white">
+    <div class="max-w-4xl mx-auto text-center px-6">
+      <h2 class="text-4xl font-bold mb-6">Support My Work</h2>
+      <p class="text-xl mb-10">This website is a one-person project. Your support helps me create more content and keep it free for everyone.</p>
+      
+      <a href="https://www.buymeacoffee.com/haroldjohn2" 
+         target="_blank"
+         class="inline-flex items-center gap-4 bg-[#FFDD00] hover:bg-[#f5c800] text-black px-14 py-7 rounded-3xl text-3xl font-bold transition-all shadow-xl">
+        <i class="fas fa-coffee"></i>
+        Buy Me a Coffee
+      </a>
+      
+      <p class="mt-8 text-emerald-300">Thank you so much for helping Mossroom grow! 🌱</p>
     </div>
   </section>
 
@@ -129,12 +136,11 @@
       const p1 = document.getElementById('plant1').value;
       const p2 = document.getElementById('plant2').value;
       const result = document.getElementById('result');
-
       if (!p1 || !p2) {
         result.innerHTML = `<span class="text-amber-600">⚠️ Please select two species.</span>`;
         return;
       }
-      result.innerHTML = `<span class="text-emerald-600">✅ Excellent match! ${p1} and ${p2} are highly compatible in high humidity environments.</span>`;
+      result.innerHTML = `<span class="text-emerald-600">✅ Excellent match! ${p1} and ${p2} work very well together.</span>`;
     }
   </script>
 </body>
