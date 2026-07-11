@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mossroom.co - The ultimate resource for terrarium builders and moss enthusiasts.">
+  <meta name="description" content="Complete free resource for terrarium builders, moss enthusiasts, and indoor plant lovers.">
   <title>Mossroom.co • Terrariums & Moss Care</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -13,14 +13,14 @@
 </head>
 <body class="bg-emerald-50 text-gray-800">
 
-  <!-- Navigation -->
   <nav class="bg-white shadow-md sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
       <h1 class="text-3xl font-bold text-emerald-700">Mossroom.co</h1>
-      <div class="space-x-8 text-lg">
-        <a href="#guides" class="hover:text-emerald-600">Guides</a>
+      <div class="space-x-6 md:space-x-8 text-lg">
         <a href="#checker" class="hover:text-emerald-600">Tool</a>
+        <a href="#guides" class="hover:text-emerald-600">Guides</a>
         <a href="#gallery" class="hover:text-emerald-600">Gallery</a>
+        <a href="#resources" class="hover:text-emerald-600">Resources</a>
         <a href="#support" class="hover:text-emerald-600 font-medium">Support</a>
       </div>
     </div>
@@ -30,22 +30,22 @@
   <section class="hero-bg bg-cover bg-center text-white py-32">
     <div class="max-w-4xl mx-auto text-center px-6">
       <h2 class="text-5xl md:text-6xl font-bold mb-6">Build Your Own Green World</h2>
-      <p class="text-xl md:text-2xl mb-8">Free resources for terrarium & moss lovers</p>
+      <p class="text-xl md:text-2xl mb-8">Free guides, tools, and inspiration for terrarium & moss lovers</p>
       <button onclick="document.getElementById('checker').scrollIntoView({behavior:'smooth'})" 
-              class="bg-emerald-600 hover:bg-emerald-700 text-white px-10 py-4 rounded-xl text-lg font-medium">
-        Try Compatibility Tool
+              class="bg-emerald-600 hover:bg-emerald-700 text-white px-10 py-4 rounded-2xl text-lg font-medium">
+        Start Here →
       </button>
     </div>
   </section>
 
-  <!-- Compatibility Checker -->
-  <section id="checker" class="py-16 bg-white">
+  <!-- Compatibility Tool -->
+  <section id="checker" class="py-20 bg-white">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-10 text-emerald-800">🌿 Plant & Moss Compatibility Checker</h2>
-      <div class="bg-emerald-50 p-8 rounded-3xl">
+      <h2 class="text-4xl font-bold text-center mb-10 text-emerald-800">🌿 Compatibility Checker</h2>
+      <div class="bg-emerald-50 p-10 rounded-3xl">
         <div class="grid md:grid-cols-2 gap-6">
-          <select id="plant1" class="w-full p-4 rounded-2xl border border-emerald-200 text-lg">
-            <option value="">Select First Species</option>
+          <select id="plant1" class="w-full p-5 rounded-2xl border border-emerald-200 text-lg">
+            <option value="">First Species</option>
             <option value="Java Moss">Java Moss</option>
             <option value="Sphagnum Moss">Sphagnum Moss</option>
             <option value="Pothos">Pothos</option>
@@ -53,9 +53,10 @@
             <option value="Mini Fern">Mini Fern</option>
             <option value="Anubias">Anubias</option>
             <option value="Bromeliad">Bromeliad</option>
+            <option value="Peperomia">Peperomia</option>
           </select>
-          <select id="plant2" class="w-full p-4 rounded-2xl border border-emerald-200 text-lg">
-            <option value="">Select Second Species</option>
+          <select id="plant2" class="w-full p-5 rounded-2xl border border-emerald-200 text-lg">
+            <option value="">Second Species</option>
             <option value="Java Moss">Java Moss</option>
             <option value="Sphagnum Moss">Sphagnum Moss</option>
             <option value="Pothos">Pothos</option>
@@ -63,12 +64,13 @@
             <option value="Mini Fern">Mini Fern</option>
             <option value="Anubias">Anubias</option>
             <option value="Bromeliad">Bromeliad</option>
+            <option value="Peperomia">Peperomia</option>
           </select>
         </div>
-        <button onclick="checkCompatibility()" class="w-full mt-8 bg-emerald-700 hover:bg-emerald-800 text-white py-5 rounded-2xl text-xl font-medium">
+        <button onclick="checkCompatibility()" class="w-full mt-8 bg-emerald-700 hover:bg-emerald-800 text-white py-6 rounded-2xl text-xl font-medium">
           Check Compatibility
         </button>
-        <div id="result" class="mt-8 text-center text-xl min-h-[80px]"></div>
+        <div id="result" class="mt-10 text-center text-xl min-h-[80px]"></div>
       </div>
     </div>
   </section>
@@ -76,19 +78,19 @@
   <!-- Guides -->
   <section id="guides" class="py-20">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-12">Essential Care Guides</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-3xl p-8 shadow-lg">
-          <h3 class="text-2xl font-semibold mb-4">Java Moss</h3>
-          <p class="text-gray-600">Extremely hardy, low maintenance, perfect for beginners.</p>
+      <h2 class="text-4xl font-bold text-center mb-12">Care Guides</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-3xl p-8 shadow">
+          <h3 class="text-2xl font-semibold mb-3">Java Moss</h3>
+          <p>Very hardy. Low light, high humidity. Can grow on rocks, wood, or substrate. Ideal for beginners and aquariums.</p>
         </div>
-        <div class="bg-white rounded-3xl p-8 shadow-lg">
-          <h3 class="text-2xl font-semibold mb-4">Closed Terrariums</h3>
-          <p class="text-gray-600">Create self-sustaining mini ecosystems.</p>
+        <div class="bg-white rounded-3xl p-8 shadow">
+          <h3 class="text-2xl font-semibold mb-3">Closed Terrarium</h3>
+          <p>Self-sustaining ecosystem. Water very rarely. Perfect balance of light, moisture and plants is key.</p>
         </div>
-        <div class="bg-white rounded-3xl p-8 shadow-lg">
-          <h3 class="text-2xl font-semibold mb-4">Sphagnum Moss</h3>
-          <p class="text-gray-600">Best for moisture retention and substrate.</p>
+        <div class="bg-white rounded-3xl p-8 shadow">
+          <h3 class="text-2xl font-semibold mb-3">Sphagnum Moss</h3>
+          <p>Excellent for moisture retention. Use as top layer or substrate. Loves bright indirect light.</p>
         </div>
       </div>
     </div>
@@ -100,34 +102,41 @@
       <h2 class="text-4xl font-bold text-center mb-12">Inspiration Gallery</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         <img src="https://images.pexels.com/photos/2086623/pexels-photo-2086623.jpeg" class="rounded-3xl h-80 w-full object-cover" alt="Terrarium">
-        <img src="https://images.pexels.com/photos/1438833/pexels-photo-1438833.jpeg" class="rounded-3xl h-80 w-full object-cover" alt="Moss">
-        <img src="https://images.pexels.com/photos/3968168/pexels-photo-3968168.jpeg" class="rounded-3xl h-80 w-full object-cover" alt="Indoor garden">
-        <img src="https://images.pexels.com/photos/4503273/pexels-photo-4503273.jpeg" class="rounded-3xl h-80 w-full object-cover" alt="Java moss">
+        <img src="https://images.pexels.com/photos/1438833/pexels-photo-1438833.jpeg" class="rounded-3xl h-80 w-full object-cover" alt="Moss garden">
+        <img src="https://images.pexels.com/photos/3968168/pexels-photo-3968168.jpeg" class="rounded-3xl h-80 w-full object-cover" alt="Lush terrarium">
+        <img src="https://images.pexels.com/photos/4503273/pexels-photo-4503273.jpeg" class="rounded-3xl h-80 w-full object-cover" alt="Java moss setup">
       </div>
     </div>
   </section>
 
-  <!-- Support Section -->
+  <!-- Resources -->
+  <section id="resources" class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Helpful Resources</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-3xl p-8 shadow">Recommended Supplies & Tools</div>
+        <div class="bg-white rounded-3xl p-8 shadow">Best Books for Beginners</div>
+        <div class="bg-white rounded-3xl p-8 shadow">Online Communities</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support -->
   <section id="support" class="py-20 bg-emerald-900 text-white">
     <div class="max-w-4xl mx-auto text-center px-6">
-      <h2 class="text-4xl font-bold mb-6">Support My Work</h2>
-      <p class="text-xl mb-10">This website is a one-person project. Your support helps me create more content and keep it free for everyone.</p>
-      
-      <a href="https://www.buymeacoffee.com/haroldjohn2" 
-         target="_blank"
-         class="inline-flex items-center gap-4 bg-[#FFDD00] hover:bg-[#f5c800] text-black px-14 py-7 rounded-3xl text-3xl font-bold transition-all shadow-xl">
-        <i class="fas fa-coffee"></i>
-        Buy Me a Coffee
+      <h2 class="text-4xl font-bold mb-6">Support This Project</h2>
+      <p class="text-xl mb-10">Your support helps me create more guides and keep this site free.</p>
+      <a href="https://www.buymeacoffee.com/haroldjohn2" target="_blank"
+         class="inline-flex items-center gap-4 bg-[#FFDD00] hover:bg-[#f5c800] text-black px-16 py-8 rounded-3xl text-3xl font-bold transition-all">
+        <i class="fas fa-coffee"></i> Buy Me a Coffee
       </a>
-      
-      <p class="mt-8 text-emerald-300">Thank you so much for helping Mossroom grow! 🌱</p>
     </div>
   </section>
 
   <footer class="bg-emerald-950 text-emerald-100 py-12">
     <div class="max-w-6xl mx-auto px-6 text-center">
-      <p class="text-2xl font-bold mb-2">Mossroom.co</p>
-      <p>&copy; 2026 • Made for Terrarium & Moss Hobbyists</p>
+      <p class="text-2xl font-bold">Mossroom.co</p>
+      <p class="mt-2">&copy; 2026 • Passion Project for Terrarium Hobbyists</p>
     </div>
   </footer>
 
@@ -136,11 +145,12 @@
       const p1 = document.getElementById('plant1').value;
       const p2 = document.getElementById('plant2').value;
       const result = document.getElementById('result');
+      
       if (!p1 || !p2) {
-        result.innerHTML = `<span class="text-amber-600">⚠️ Please select two species.</span>`;
+        result.innerHTML = `<span class="text-amber-500">Please select two species.</span>`;
         return;
       }
-      result.innerHTML = `<span class="text-emerald-600">✅ Excellent match! ${p1} and ${p2} work very well together.</span>`;
+      result.innerHTML = `<span class="text-emerald-400 text-2xl">✅ Great match! ${p1} and ${p2} are highly compatible.</span>`;
     }
   </script>
 </body>
